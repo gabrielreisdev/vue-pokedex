@@ -3,7 +3,7 @@
       <main>
         <img src="" alt="" class="pokemon__image" />
         <h1 class="pokemon__data">
-          <span class="pokemon__number"></span>
+          <span class="pokemon__number">{{ pokemon }}</span>
           -
           <span class="pokemon__name"></span>
         </h1>
@@ -14,9 +14,9 @@
             class="input__search"
             placeholder="Nome ou Número"
             required
-            v-model="input__search"
+            v-model="pokemon__number"
           />
-          <button @click="searchPokemon" class="buttonSearch"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/> </svg></button>
+          <button @click="searchPokemon" class="buttonSearch"> <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/> </svg></button>
         </form>
   
         <div class="buttons">
@@ -25,6 +25,11 @@
         </div>
         <img src="./assets/pokedex.png" alt="pokedex" class="pokedex" />
       </main>
+      <span class="main2">
+        <img src="./assets/stats.png" class="stats"/>
+        <h1 class="pokemon__evo">pokemon evolution</h1>
+        <h1 class="pokemon__stats">pokemon stats</h1>
+      </span>
     </body>
 </template>
 
@@ -78,13 +83,23 @@ body{
 main{
     display: inline-block;
     margin-top: 2%;
-    padding: 15px;
+    position: relative;
+}
+.main2{
+    display: inline-block;
+    margin-top: 2%;
     position: relative;
 }
 
 .pokedex{
     width: 100%;
-    max-width: 425px;
+    max-width: 350px;
+}
+.stats{
+  width: 100%;
+  max-width: 600px;
+  height: 525px;
+  position: relative;
 }
 
 .pokemon__image {
@@ -101,6 +116,23 @@ main{
     top: 54.5%;
     right: 27%;
     font-size: clamp(8px, 5vw, 25px);
+}
+
+.pokemon__evo{
+  position: absolute;
+  font-weight: 600;
+  color: #aaa;
+  top: 25%;
+  right: 24.5%;
+  font-size: clamp(8px, 5vw, 20px);
+}
+.pokemon__stats{
+  position: absolute;
+  font-weight: 600;
+  color: #aaa;
+  top: 52%;
+  right: 30%;
+  font-size: clamp(8px, 5vw, 20px);
 }
 
 .pokemon__name {
@@ -142,15 +174,16 @@ main{
     padding: 4%;
     border: 2px solid #000;
     border-radius: 5px;
-    font-size: clamp(5px, 5vw, 1rem);
+    font-size: clamp(5px, 5vw, 0.8rem);
     font-weight: 600;
     color: white;
     background-color: #444;
     box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
+    height: 35px;
 }
 .buttonSearch{
     width: 15%;
-    height: 40px;
+    height: 33px;
     padding: 4%;
     border: 2px solid #000;
     border-radius: 5px;
@@ -161,6 +194,9 @@ main{
     box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
     margin-top: 15px;
 }
+.buttonSearch svg{
+ margin: auto; 
+}
 
 .buttonSearch:active{
     box-shadow: inset -4px 4px 0 #222;
@@ -169,6 +205,8 @@ main{
 
 .button:active{
     box-shadow: inset -4px 4px 0 #222;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
 }
+
+
 </style>
